@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'circleci/node:22-browsers'
+                    image 'node:22-alpine'
                     reuseNode true
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'circleci/node:22-browsers'
+                    image 'node:22-alpine'
                     reuseNode true
                 }
             }
