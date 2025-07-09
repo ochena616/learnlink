@@ -30,8 +30,10 @@ pipeline {
             }
             steps {
                 sh '''
+                    apk add --no-cache chromium
+                    export CHROME_BIN=/usr/bin/chromium-browser
                     test -f dist/learnlink/browser/index.html
-                    npm test
+                    npm test -- --watch=false --browsers=ChromeHeadless
                 '''
             }
         }
