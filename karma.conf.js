@@ -1,6 +1,6 @@
 module.exports = function (config) {
   config.set({
-    browsers: ["ChromeHeadless"], 
+    browsers: ["ChromeHeadless"],
 
     customLaunchers: {
       ChromeHeadless: {
@@ -13,7 +13,7 @@ module.exports = function (config) {
         ],
       },
     },
-
+    browsers: ["ChromeHeadless"],
     singleRun: true,
   });
 };

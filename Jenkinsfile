@@ -31,8 +31,13 @@ pipeline {
             steps {
                 sh '''
                     test -f dist/learnlink/browser/index.html
-                    npm test
+                    ng test --watch=false
                 '''
+            }
+        }
+        post {
+            always {
+            junit 'test-reports/*.xml'
             }
         }
     }
