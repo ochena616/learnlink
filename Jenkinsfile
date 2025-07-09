@@ -29,8 +29,10 @@ pipeline {
                 }
             }
             steps {
-                sh 'test -f dist/learnlink/browser/index.html'
-                sh 'echo "fin test"'
+                sh '''
+                    test -f dist/learnlink/browser/index.html
+                    echo "fin test"
+                '''
             }
         }
     }
