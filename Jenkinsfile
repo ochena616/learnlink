@@ -1,33 +1,38 @@
 pipeline {
-    agent {
-        docker {
-            image 'circleci/node:22-browsers'
-        }
-    }
+    agent any
 
     stages {
-        stage('Install & Build') {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'circleci/node:22-browsers'
+                    reuseNode true
+                }
+            }
             steps {
                 sh '''
-                    echo "--- Environment Info ---"
+                    ls -la
                     node --version
                     npm --version
-                    
-                    echo "--- Installing Dependencies ---"
                     npm ci
-                    
-                    echo "--- Building Project ---"
                     npm run build
-                    
-                    echo "--- Build Artifacts ---"
-                    ls -la dist/learnlink/browser/
+                    ls -la
                 '''
             }
         }
 
         stage('Test') {
+            agent {
+                docker {
+                    image 'circleci/node:22-browsers'
+                    reuseNode true
+                }
+            }
             steps {
-                sh 'npm test'
+                sh '''
+                    test -f dist/learnlink/browser/index.html
+                    npm test
+                '''
             }
         }
     }
