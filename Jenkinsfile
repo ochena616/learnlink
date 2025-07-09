@@ -23,7 +23,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Test stage'
+                sh 'test -f dist/learnlink/browser/index.html'
             }
         }
     }
