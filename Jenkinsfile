@@ -29,10 +29,8 @@ pipeline {
                 }
             }
             steps {
-                sh '''
-                    export CHROME_BIN=/usr/bin/google-chrome
-                    npm test -- --watch=false --browsers=ChromeHeadless
-                '''
+                sh 'export CHROME_BIN=/usr/bin/google-chrome'
+                sh 'npm test -- --watch=false --browsers=ChromeHeadless'
             }
         }
     }
