@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                     test -f dist/learnlink/browser/index.html
-                    ng test --watch=false
+                    npm test
                 '''
             }
         }
