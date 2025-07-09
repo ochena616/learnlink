@@ -31,8 +31,7 @@ pipeline {
             steps {
                 sh '''
                     export CHROME_BIN=/usr/bin/google-chrome
-                    test -f dist/learnlink/browser/index.html
-                    npm run test -- --watch=false --browsers=ChromeHeadless
+                    npm test -- --watch=false --browsers=ChromeHeadless
                 '''
             }
         }
