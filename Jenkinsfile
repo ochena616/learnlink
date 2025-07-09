@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sh '''
                     test -f dist/learnlink/browser/index.html
-                    npm test
+                    npm run test
                 '''
             }
         }
