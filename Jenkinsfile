@@ -24,14 +24,13 @@ pipeline {
         stage('Test') {
             agent {
                 docker {
-                    image 'node:22-alpine'
+                    image 'selenium/standalone-chrome'
                     reuseNode true
                 }
             }
             steps {
                 sh '''
-                    apk add --no-cache chromium
-                    export CHROME_BIN=/usr/bin/chromium-browser
+                    export CHROME_BIN=/usr/bin/google-chrome
                     test -f dist/learnlink/browser/index.html
                     npm test -- --watch=false --browsers=ChromeHeadless
                 '''
