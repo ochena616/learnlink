@@ -29,11 +29,7 @@ pipeline {
                 }
             }
             steps {
-                sh '''
-                    export CHROME_BIN=/usr/bin/google-chrome
-                    test -f dist/learnlink/browser/index.html
-                    npm run test:ci
-                '''
+                sh 'npm run test:ci'
             }
         }
     }
